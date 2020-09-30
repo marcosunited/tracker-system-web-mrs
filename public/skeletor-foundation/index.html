@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+
+    <link rel="icon" type="image/png" href="img/skeletor.png">
+    <title>Skeletor Template</title>
+
+    <meta name="description" content="A Clean, simple base to create Web pages and apps">
+    <meta name="keywords" content="skeleton ">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/skeletor.css">
+    <link rel="stylesheet" href="plugins/multimenu/multimenu.css">
+
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/skeletor.js"></script>
+    <script src="plugins/multimenu/modernizr-custom.js"></script>
+    <script src="plugins/multimenu/multimenu.js"></script>
+
+</head>
+
+<body>
+    <div class="midnight"></div>
+    <div class="alert">
+        <?=sess('alert')?>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="left" style="min-width:330px;">
+                <a href="#" class="skeletor-title">
+                    <img src="img/skeletor.png" class="logo left">
+                    <h5 class="title">Skeletor Template</h5>
+                </a>
+            </div>
+            <div id="multimenu" class="multimenu">
+                <div class="multimenu-title">MENU</div>
+                <ul>
+                    <li><a href="//one.com.au">Item One</a></li>
+                    <li><a href="//two.com.au">Item Two</a></li>
+                    <li>
+                        <a href="//three.com.au">Item Three</a>
+                        <ul>
+                            <li><a href="//four.com.au">Item Three Sub One</a></li>
+                            <li><a href="//five.com.au">Item Three Sub Two</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="//six.com.au">Item Four</a></li>
+                    <li>
+                        <a href="//seven.com.au">Item Five</a>
+                        <ul>
+                            <li><a href="//eight.com.au">Item Five Sub One</a></li>
+                            <li><a href="//nine.com.au">Item Five Sub Two</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <img class="responsive" src="img/banner.jpg">
+        </div>
+        <div class="row" style="margin-top:15px">
+            <h4>Welcome</h4>
+            <p>Skeletor is <a href="http://www.getskeleton.com">Skeleton</a> with improvements and additional everyday features, Such as a <a href="//clearsky.net.au">Responsive Menu</a> and <a href="//clearsky.net.au">Slider</a></p>
+            <h4>License</h4>
+            <p>The MIT License (MIT)</p>
+            <p>Copyright (c) 2011-2014 Dave Gamache</p>
+            <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use,
+                copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+            <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+                HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+        </div>
+		<div class="footer">Copyright © 2016 | Cody Joyce | <a href="//clearsky.net.au">Clearsky I.T Services</a></div>
+    </div>
+</body>
+
+</html>

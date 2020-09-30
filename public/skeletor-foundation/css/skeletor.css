@@ -1,0 +1,226 @@
+/*
+Skeletor CSS
+Some improvements and additions for Skeleton
+- Cody Joyce 20/07/2016
+*/
+
+body {
+    margin-top: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.responsive {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.skeletor-title {
+    text-decoration: none;
+    color: #222;
+}
+
+.skeletor-title img {
+    margin-right: 10px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.multimenu {
+    float: right;
+}
+
+.title {
+    line-height: 50px;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+button {
+    width: 50%;
+}
+
+.active, .active a {
+    background-color: #666;
+    color: #fff!important;
+}
+
+.footer {
+    font-size: 1em;
+    line-height: 30px;
+}
+
+.footer img {
+    height: 30px;
+    float: right;
+}
+input,select,textarea,button{
+	width:100%;
+}
+
+/* Alert Message*/
+
+.midnight {
+    display: none;
+    position: absolute;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    z-index: 99;
+}
+
+.alert {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    width: 80%;
+    right: 10%;
+    top: 10%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 2rem;
+}
+checkbox{
+    border:1px solid red;
+}
+
+.checkboxFour {
+    width: 0px;
+    height: 0px;
+    background: #ddd;
+    
+
+    border-radius: 100%;
+    position: relative;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.checkboxFour2 {
+    width: 0px;
+    height: 0px;
+    background: #ddd;
+    
+
+    border-radius: 100%;
+    position: relative;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+.checkboxFourEmpty {
+    width: 0px;
+    height: 0px;
+    background: #ddd;
+    
+
+    border-radius: 100%;
+    position: relative;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+.checkboxFour label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    left: 1px;
+    z-index: 1;
+
+    background: #333;
+    box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.checkboxFour2 label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    left: 1px;
+    z-index: 1;
+
+    background: rgb(231, 48, 48);
+    box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.checkboxFourEmpty label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    left: 1px;
+    z-index: 1;
+
+    background: rgb(231, 48, 48);
+    box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+.checkboxFour input[type=checkbox]:checked + label {
+    background: #26ca28;
+}
+
+.checkboxFour2 input[type=checkbox]:checked + label {
+    background: #ca2626;
+}
+
+.checkboxFourEmpty input[type=checkbox]:checked + label {
+    background: #000000;
+}
+
+
+.date{
+    height: 38px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+.date:focus{
+    border:1px solid #33C3F0;
+}
+label{
+    margin-top:10px!important;
+    margin-bottom:5px!important;
+    color:#f7b948;
+}
