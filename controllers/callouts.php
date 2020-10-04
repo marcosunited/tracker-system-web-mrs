@@ -3,11 +3,16 @@
     {   
         private $model;
         private $view;
+
+        private $emailHistoryModel;
+        private $currentCalloutId;
         
         function __construct()
         {
             $this->model = new calloutsModel();
-            $this->view = new calloutsView($this->model);        
+            $this->view = new calloutsView($this->model);
+
+            $this->emailHistoryModel = new emailHistoryModel();
         }
         
         function index()
@@ -104,9 +109,8 @@
 			$tmp_name = $_FILES['file']['tmp_name'];
 			$location = 'public/uploads/';
 			 move_uploaded_file($tmp_name, $location.$name);
-			
-			
-			
+
+
             $jobs = new jobs();
             $jobs->model->read(req('job_id'));
             
@@ -131,36 +135,48 @@
 
             if(req('callout_id'))
             {
+                $this->currentCalloutId = req('callout_id');
                 $this->model->update();
                 $data = array(
-                "jobs"=>$jobs,
-                "faults"=>$_faults,
-                "technician_faults"=>$_technician_faults,
-                "correction"=>$_corrections,
-                "chargeable"=>$chargeable,
-                "user"=>$user
+                    "jobs"=>$jobs,
+                    "faults"=>$_faults,
+                    "technician_faults"=>$_technician_faults,
+                    "correction"=>$_corrections,
+                    "chargeable"=>$chargeable,
+                    "user"=>$user,
+                    "callout_id"=>$this->currentCalloutId
                  );                     
-                $this->view->render('calloutsPrint',$data);   
+                $this->view->renderPdf('calloutsPrint',$data);
                 sess('alert','Callout Updated');
-                //redirect(URL.'/callouts/form/'.req('callout_id'));
+                redirect(URL.'/callouts/form/'.req('callout_id'));
             }else{
                 $this->model->create();
+
+                //get created callout id
+                $this->currentCalloutId = mysqli_fetch_array(query("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE TABLE_NAME = 'callouts'"));
+                $this->currentCalloutId = (int)$this->currentCalloutId['AUTO_INCREMENT'] - 1;
+
                 $data = array(
-                "jobs"=>$jobs,
-                "faults"=>$_faults,
-                "technician_faults"=>$_technician_faults,
-                "correction"=>$_corrections,
-                "chargeable"=>$chargeable,
-                "user"=>$user
-                 );                     
-                $this->view->render('calloutsPrint',$data);
+                    "jobs"=>$jobs,
+                    "faults"=>$_faults,
+                    "technician_faults"=>$_technician_faults,
+                    "correction"=>$_corrections,
+                    "chargeable"=>$chargeable,
+                    "user"=>$user,
+                    "callout_id"=>$this->currentCalloutId
+                 );
+
+                $this->view->renderPdf('calloutsPrint',$data);
                 sess('alert','Callout Created');
-                //redirect(URL.'/callouts/');           
+                redirect(URL."/callouts/");
             }
 
+            //GET NEXT EMAIL ATTEMPT
+            $maxEmailAttempt = $this->emailHistoryModel->getMaxAttempts();
+            $nextEmailAttempt = $this->emailHistoryModel->getNextAttempt($this->currentCalloutId);
 
-            
-            if($this->model->notify_email != "" && $this->model->callout_status_id==2){
+            //STATUS 2 = CLOSED
+            if($this->model->notify_email != "" && $this->model->callout_status_id==2 && ($nextEmailAttempt <= $maxEmailAttempt)){
                 $address = $jobs->model->job_address_number . " " . $jobs->model->job_address;
                 $subject = "United Lifts Call Report";
                 $description = str_replace("\r\n","<br>",$this->model->callout_description);
@@ -185,7 +201,7 @@
                 $filename = (string)$this->model->callout_time;
 
                 $message = "
-                    <img src='http://unitedlifts.com.au/wp-content/uploads/2016/09/logo.png'>
+                    <img src='http://cloud.unitedlifts.com.au/melbourne-tracker/app/images/logo.png'>
                     <p>This notification is to advise completion of your call out (Docket Number: $myID, Order Number: $order_number) to Unit('s)<br>&nbsp;<br>
                     <b>$lift_names</b> at <b>$address</b> on <b>$toc</b>.</p>
                     <p>The fault as reported to us was '<b>$fault</b>' - '<b>$description</b>'. Our technician attended at <b>$toa</b>.</p>
@@ -199,11 +215,27 @@
                 $emails = explode(";",$this->model->notify_email);
                 
                 foreach($emails as $email){
-                    mailer($email,$user_email,"call@unitedlifts.com.au","unitedlifts.com.au",$subject,$message,$filename);
+                    $mailResponse = mailer($email,$user_email,"call@unitedlifts.com.au","unitedlifts.com.au",$subject,$message,$filename);
 
+                    /////////////////////record mailing history/////////////////////////////////////////////////////////
+                    $this->emailHistoryModel->user_id = sess('user_id');
+                    $this->emailHistoryModel->item_id = $this->currentCalloutId;
+                    $this->emailHistoryModel->item_type_id = 1; // 1 for collouts
+                    $this->emailHistoryModel->status = $mailResponse == 'OK' ? 'SENT' : 'FAILED';
+                    $this->emailHistoryModel->date_created = $this->model->callout_time;
+                    $this->emailHistoryModel->date_sent = time();
+                    $this->emailHistoryModel->subject = $subject;
+                    $this->emailHistoryModel->email_to = $email;
+                    $this->emailHistoryModel->email_from = 'call@unitedlifts.com.au';
+                    $this->emailHistoryModel->attempt = $nextEmailAttempt;
+                    $this->emailHistoryModel->include_attachment = 1;
+                    $this->emailHistoryModel->exception_message = $mailResponse == 'OK' ? '' : $mailResponse;;
+
+                    $this->emailHistoryModel->create();
                 }
-				
-				
+
+
+                /////////////////////google print cloud/////////////////////////////////////////////////////////////////
 				require_once 'public/cloudprint/Config.php';
 				require_once 'public/cloudprint/GoogleCloudPrint.php';
 					
@@ -230,15 +262,16 @@
 					
 					//$printerid = $printers[1]['id']; // Pass id of any printer to be used for print
 					// Send document to the printer
-					$resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$filename.pdf", "application/pdf");
-					
-					if($resarray['status']==true) {
-						
+					//$resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$filename.pdf", "application/pdf");
+
+/*                    $resarray = $gcp->sendPrintToPrinter($printerid, $address, "$filename.pdf", "application/pdf");
+
+                    if($resarray['status']==true) {
 						echo "Document has been sent to printer and should print shortly.";
 					}
 					else {
 						echo "An error occured while printing the doc. Error code:".$resarray['errorcode']." Message:".$resarray['errormessage'];
-					}
+					}*/
 				}
 
             }        

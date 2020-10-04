@@ -20,12 +20,16 @@
         <script src="<?=URL?>/public/js/jquery-timepicker/dist/jquery-ui-timepicker-addon.min.js"></script>
         <script src="<?=URL?>/public/js/jsignature/jSignature.min.js"></script>
         <script src="<?=URL?>/public/js/maintenanceFormData.js"></script>
-        
+        <script src="<?=URL?>/public/js/busy-indicator/busy_indicator.js"></script>
+
+
         <link rel="stylesheet" href="<?=URL?>/public/skeletor-foundation/css/fonts.css">
         <link rel="stylesheet" href="<?=URL?>/public/skeletor-foundation/css/normalize.css">
         <link rel="stylesheet" href="<?=URL?>/public/skeletor-foundation/css/skeleton.css">
         <link rel="stylesheet" href="<?=URL?>/public/skeletor-foundation/css/skeletor.css">
         <link rel="stylesheet" href="<?=URL?>/public/skeletor-foundation/plugins/multimenu/multimenu.css">
+
+        <link rel="stylesheet" href="<?=URL?>/public/js/busy-indicator/busy_indicator.css">
 
         <link rel="stylesheet" href="<?=URL?>/public/js/jquery-ui/jquery-ui.min.css">
         <link rel="stylesheet" href="<?=URL?>/public/js/jquery-timepicker/dist/jquery-ui-timepicker-addon.min.css">
@@ -68,4 +72,7 @@
             </div>            
             <div class="row">
                 <img class="responsive" src="<?=URL?>/public/skeletor-foundation/img/banner.jpg">
+            </div>
+            <div id="busybox" class="fog_div">
+                <div></div>
             </div>
