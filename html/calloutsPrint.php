@@ -98,7 +98,7 @@
   <body>
     <header class="clearfix">
       <div id="logo">
-		<? $fileLogo = $_SERVER['DOCUMENT_ROOT']."/melbournemrs/public/img/logo.png";?>
+          <? $fileLogo = $_SERVER['DOCUMENT_ROOT']."/tracker-system-web-mrs/public/img/logo.png";?>
         <img src= <?=$fileLogo?> >        
       </div>
       <div id="company">
@@ -131,7 +131,7 @@
         </div>
         <div id="invoice">
           <h1>Callouts:
-            <?=$this->model->callout_id?>
+            <?=$callout_id?>
           </h1>
           <div class="date">Date of Call:
             <?=toDate($this->model->callout_time)?>
@@ -265,7 +265,8 @@
       //$customPaper = array(0,0,950,950);
       $dompdf->set_paper('A4', 'portrait');
       $dompdf->render();
-      $file_location = $_SERVER['DOCUMENT_ROOT']."/melbournemrs/functions/pdfReports/".$this->model->callout_time.".pdf";
+      //$file_location = $_SERVER['DOCUMENT_ROOT']."/melbournemrs/functions/pdfReports/".$this->model->callout_time.".pdf";
+      $file_location = $_SERVER['DOCUMENT_ROOT']."/tracker-system-web-mrs/".$this->model->callout_time.".pdf";
       file_put_contents($file_location, $dompdf->output());
     
 ?>

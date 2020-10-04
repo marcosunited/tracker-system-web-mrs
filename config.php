@@ -7,13 +7,13 @@
     */    
     
     define('APPNAME','MelbourneMRS',true);   
-    define('APPDIR','melbournemrs',true);
+    define('APPDIR','tracker-system-web-mrs',true);
     
     //Database Settings
-    define('DB_USER','root',true);
-    define('DB_PASSWORD','Wdugags1',true);
-    define('DB_HOST','localhost',true);
-    define('DB_DATABASE','melbournemrs',true);   
+    define('DB_USER','dev',true);
+    define('DB_PASSWORD','DBPassULS$2020',true);
+    define('DB_HOST','10.42.0.149',true);
+    define('DB_DATABASE','uls.tracker.melbourne',true);
 
     date_default_timezone_set("Australia/Melbourne");
     

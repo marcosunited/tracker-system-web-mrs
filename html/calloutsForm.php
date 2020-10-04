@@ -8,7 +8,7 @@
 <h1>Callouts</h1>
 <p><a href="<?=URL?>/callouts" class="button-primary">Back to callouts</a></p>
 
-<form role="form" action="<?=URL?>/callouts/action/" method="post" enctype="multipart/form-data">
+<form id="calloutsForm" role="form" action="<?=URL?>/callouts/action/" method="post" enctype="multipart/form-data">
         <input type="hidden" name="callout_id" placeholder="callout_id"  value="<?=$this->model->callout_id?>">                 
         <input type="hidden" name="is_printed" placeholder="is_printed"  value="<?=$this->model->is_printed?>">
         <input type="hidden" name="user_id" placeholder="user_id"  value="<?=$this->model->user_id?>">
@@ -43,9 +43,9 @@
         <div id="lifts"><?checkList('lifts','lift_id','lift_name',$this->model->lift_ids,'where job_id = '.$jobs->model->job_id." order by lift_name ASC");?></div>
         
         <h5>Tech Details</h5>
-        <label>Time of arrival: </label><input id="toa" autocomplete="off" <?=$disabled?>  required class="date" type="datetime-local" name="time_of_arrival" placeholder="time_of_arrival"  value="<?=toDateTime($this->model->time_of_arrival)?>"><br>     
-        <label>Rectification time: </label><input id="rot" autocomplete="off" <?=$disabled?>  required class="date" type="datetime-local" name="rectification_time" placeholder="rectification_time"  value="<?=toDateTime($this->model->rectification_time)?>"><br>              
-        <label>Time of departure: </label><input id="tod" autocomplete="off" <?=$disabled?>  required class="date" type="datetime-local" name="time_of_departure" placeholder="time_of_departure"  value="<?=toDateTime($this->model->time_of_departure)?>"><br>
+        <label>Time of arrival: </label><input id="toa" autocomplete="off" <?=$disabled?>   class="date" type="datetime-local" name="time_of_arrival" placeholder="time_of_arrival"  value="<?=toDateTime($this->model->time_of_arrival)?>"><br>
+        <label>Rectification time: </label><input id="rot" autocomplete="off" <?=$disabled?>   class="date" type="datetime-local" name="rectification_time" placeholder="rectification_time"  value="<?=toDateTime($this->model->rectification_time)?>"><br>
+        <label>Time of departure: </label><input id="tod" autocomplete="off" <?=$disabled?>   class="date" type="datetime-local" name="time_of_departure" placeholder="time_of_departure"  value="<?=toDateTime($this->model->time_of_departure)?>"><br>
 
         <?
             $where = "where tech_hidden is null and type <> 'Escalator'";
@@ -82,11 +82,24 @@
         
         <label>Notify Email: </label><input id="notify_email" autocomplete="off" <?=$disabled?>  required type="text" name="notify_email" placeholder="notify_email"  value="<?=$this->model->notify_email?>"><br>
         <label>Technician Email: </label><?=$user_email?><br>
-		<input type="submit" class="button-primary" value="Save" <?=$disabled?>>
+		<input type="submit" class="button-primary" value="Save" id="formbutton" <?=$disabled?>>
 </form>
 
 <script>
     $(document).ready(function(){
+        //show busy indicator
+        function submitListener(event) {
+            //console.log('prueba');
+            busyi = new busy_indicator(document.getElementById("busybox"),
+                document.querySelector("#busybox div"));
+            busyi.show();
+
+            document.getElementById('calloutsForm').submit();
+
+            event.preventDefault();
+        }
+        const form = document.getElementById('calloutsForm');
+        form.addEventListener('submit', submitListener);
 
         if(!isMobile()){
 			$('#callout_time').datetimepicker({ dateFormat: 'dd-mm-yy',timeFormat:'HH:mm:ss',showSecond: false });

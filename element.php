@@ -61,6 +61,13 @@
     
     class view
     {
+        function renderPdf($inc,$data = null)
+        {
+            if(is_array($data))
+                extract($data);
+            include('html/'.$inc.'.php');
+        }
+
         function render($inc,$data = null)
         {
             if(is_array($data))
