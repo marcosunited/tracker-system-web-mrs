@@ -131,7 +131,7 @@
         </div>
         <div id="invoice">
           <h1>Callouts:
-            <?=$this->model->callout_id?>
+            <?=$callout_id?>
           </h1>
           <div class="date">Date of Call:
             <?=toDate($this->model->callout_time)?>

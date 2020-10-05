@@ -50,7 +50,8 @@
             '$this->customer_signature',0$this->accepted_id,0$this->updated,0$this->user_id,'$this->notify_email',
             '$this->reported_customer','$this->photo_name')";
 
-            return db::query($query1);
+            db::query($query1);
+            return db::insetId();
         }
         
         function read($id)
