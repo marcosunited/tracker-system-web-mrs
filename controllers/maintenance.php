@@ -216,7 +216,8 @@
                     "fileName"=>$fileName
                     );                     
 
-                    $this->view->render('maintenancePrint',$data);
+                    $this->view->renderPdf('maintenancePrint',$data);
+                    redirect(URL.'/maintenance/');
                 }                             
                 else
                 {
@@ -262,7 +263,7 @@
                     //$filename = (string)$this->model->maintenance_date;
 
                     $message = "
-                        <img src='http://unitedlifts.com.au/wp-content/uploads/2016/09/logo.png'>
+                        <img src='http://cloud.unitedlifts.com.au/melbourne-tracker/app/images/logo.png'>
                         <p>This notification is to advise completion of your Maintenance (Docket Number: $myID, Order Number: $order_number) to Unit('s)<br>&nbsp;<br>
                          at <b>$address</b> on <b>$toc</b>.</p>
                         
@@ -302,14 +303,14 @@
                         
                         //$printerid = $printers[1]['id']; // Pass id of any printer to be used for print
                         // Send document to the printer
-                        $resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$fileName.pdf", "application/pdf");
+                        /*$resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$fileName.pdf", "application/pdf");
                         
                         if($resarray['status']==true) {                            
                             echo "Document has been sent to printer and should print shortly.";                            
                         }
                         else {
                             echo "An error occured while printing the doc. Error code:".$resarray['errorcode']." Message:".$resarray['errormessage'];
-                        }
+                        }*/
                     }
                 }
 
@@ -317,11 +318,11 @@
         }
 
         
-                function delete()
-                {
-                    $this->model->delete(req('id'));
-                    sess('alert','Maintenance Deleted');
-                    redirect(URL.'/maintenance');
-                }
+        function delete()
+        {
+            $this->model->delete(req('id'));
+            sess('alert','Maintenance Deleted');
+            redirect(URL.'/maintenance');
+        }
     }
 ?>

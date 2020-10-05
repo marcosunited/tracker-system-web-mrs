@@ -357,7 +357,7 @@ function showTask2(month)
 <h5><?=$jobs->model->job_name?> - <?=$jobs->model->job_address_number?> <?=$jobs->model->job_address?></h5>
 
 
-<form role="form" action="<?=URL?>/maintenance/action/" method="post">
+<form role="form" id="maintenanceForm" action="<?=URL?>/maintenance/action/" method="post">
         <input type="hidden" id = "maintenance_id"  name="maintenance_id" value="<?=$this->model->maintenance_id?>">
         <input type="hidden" name="technician_id" placeholder="technician_id" class="form-control" value="<?=sess('user_id')?>">
         <input type="hidden" name="job_id" placeholder="job_id" class="form-control" value="<?=$jobs->model->job_id?>">
@@ -524,6 +524,18 @@ function showTask2(month)
 </form>
 <script>
     $(document).ready(function(){
+        //show busy indicator
+        function submitListener(event) {
+            busyi = new busy_indicator(document.getElementById("busybox"),
+                document.querySelector("#busybox div"));
+            busyi.show();
+
+            document.getElementById('maintenanceForm').submit();
+
+            event.preventDefault();
+        }
+        const form = document.getElementById('maintenanceForm');
+        form.addEventListener('submit', submitListener);
 
         if(!isMobile()){
 			$('#maintenance_date').datetimepicker({ dateFormat: 'dd-mm-yy',timeFormat:'HH:mm:ss',showSecond: true });

@@ -257,7 +257,7 @@
 					
 					//$printerid = $printers[1]['id']; // Pass id of any printer to be used for print
 					// Send document to the printer
-					//$resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$filename.pdf", "application/pdf");
+					$resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$filename.pdf", "application/pdf");
 					
 					if($resarray['status']==true) {
 						
