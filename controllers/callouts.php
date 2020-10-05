@@ -150,11 +150,7 @@
                 sess('alert','Callout Updated');
                 redirect(URL.'/callouts/form/'.req('callout_id'));
             }else{
-                $this->model->create();
-
-                //get created callout id
-                $this->currentCalloutId = mysqli_fetch_array(query("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE TABLE_NAME = 'callouts'"));
-                $this->currentCalloutId = (int)$this->currentCalloutId['AUTO_INCREMENT'] - 1;
+                $this->currentCalloutId = $this->model->create();
 
                 $data = array(
                     "jobs"=>$jobs,
