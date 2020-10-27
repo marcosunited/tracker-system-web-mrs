@@ -41,8 +41,8 @@ function mailer($mailto, $mailto2, $from, $domain, $mysubject, $message, $filena
 //Set who the message is to be sent from
     $mail->setFrom($from, 'Unitedlifts Services');
 //Set an alternative reply-to address
-    $mail->AddAttachment($_SERVER['DOCUMENT_ROOT']."/melbournemrs/functions/pdfReports/".$filename.".pdf");
-   //$mail->AddAttachment($_SERVER['DOCUMENT_ROOT'] . "/tracker-system-web-mrs/" . $filename . ".pdf");
+    $mail->AddAttachment($_SERVER['DOCUMENT_ROOT'] . "/melbournemrs/functions/pdfReports/" . $filename . ".pdf");
+    //$mail->AddAttachment($_SERVER['DOCUMENT_ROOT'] . "/tracker-system-web-mrs/" . $filename . ".pdf");
 //Set who the message is to be sent to
     $mail->addAddress($mailto);
     $mail->addAddress($mailto2);

@@ -207,6 +207,7 @@ class callouts
                     <p>Thankyou for your continued patronage.</p>
                     <p>United Lift Services</p>               
                 ";
+          
             $emails = explode(";",$this->model->notify_email);
 
             foreach($emails as $email){
@@ -273,7 +274,6 @@ class callouts
                     echo "An error occured while printing the doc. Error code:".$resarray['errorcode']." Message:".$resarray['errormessage'];
                 }
             }
-
         }
     }
 

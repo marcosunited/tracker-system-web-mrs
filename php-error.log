@@ -1,0 +1,164 @@
+[26-Oct-2020 02:38:13 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[26-Oct-2020 02:38:13 Etc/UTC] PHP Stack trace:
+[26-Oct-2020 02:38:13 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[26-Oct-2020 02:38:13 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[26-Oct-2020 02:38:13 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[26-Oct-2020 02:38:13 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[26-Oct-2020 02:38:13 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[26-Oct-2020 02:41:16 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[26-Oct-2020 02:45:20 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[26-Oct-2020 02:45:20 Etc/UTC] PHP Stack trace:
+[26-Oct-2020 02:45:20 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[26-Oct-2020 02:45:20 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[26-Oct-2020 02:45:20 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[26-Oct-2020 02:45:20 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[26-Oct-2020 02:45:20 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[26-Oct-2020 02:45:56 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[26-Oct-2020 02:50:59 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[26-Oct-2020 02:50:59 Etc/UTC] PHP Stack trace:
+[26-Oct-2020 02:50:59 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[26-Oct-2020 02:50:59 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[26-Oct-2020 02:50:59 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[26-Oct-2020 02:50:59 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[26-Oct-2020 02:50:59 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[26-Oct-2020 02:51:16 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[26-Oct-2020 02:56:37 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[26-Oct-2020 02:56:37 Etc/UTC] PHP Stack trace:
+[26-Oct-2020 02:56:37 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[26-Oct-2020 02:56:37 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[26-Oct-2020 02:56:37 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[26-Oct-2020 02:56:37 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[26-Oct-2020 02:56:37 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[26-Oct-2020 02:56:54 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[26-Oct-2020 03:08:53 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[26-Oct-2020 03:08:53 Etc/UTC] PHP Stack trace:
+[26-Oct-2020 03:08:53 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[26-Oct-2020 03:08:53 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[26-Oct-2020 03:08:53 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[26-Oct-2020 03:08:53 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[26-Oct-2020 03:08:53 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[26-Oct-2020 03:10:02 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[26-Oct-2020 03:15:52 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[26-Oct-2020 03:15:52 Etc/UTC] PHP Stack trace:
+[26-Oct-2020 03:15:52 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[26-Oct-2020 03:15:52 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[26-Oct-2020 03:15:52 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[26-Oct-2020 03:15:52 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[26-Oct-2020 03:15:52 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[26-Oct-2020 03:15:52 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[27-Oct-2020 10:02:27 Australia/Melbourne] PHP Fatal error:  Call to undefined method login::offlinetoken.php() in C:\ULS\Sources\Projects\MRS\melbournemrs\element.php on line 161
+[27-Oct-2020 10:02:27 Australia/Melbourne] PHP Stack trace:
+[27-Oct-2020 10:02:27 Australia/Melbourne] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 10:02:27 Australia/Melbourne] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 10:02:27 Australia/Melbourne] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:04:50 Etc/UTC] PHP Notice:  Undefined property: stdClass::$access_token in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 85
+[27-Oct-2020 01:04:50 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:04:50 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:04:50 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:04:50 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:04:50 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:04:50 Etc/UTC] PHP   5. GoogleCloudPrint->getAccessTokenByRefreshToken($url = *uninitialized*, $post_fields = *uninitialized*) C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php:243
+[27-Oct-2020 01:04:50 Etc/UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Please first login to Google' in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php:121
+Stack trace:
+#0 C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php(247): GoogleCloudPrint->getPrinters()
+#1 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(161): callouts->action()
+#2 C:\ULS\Sources\Projects\MRS\melbournemrs\element.php(119): router()
+#3 C:\ULS\Sources\Projects\MRS\melbournemrs\index.php(12): session_init()
+#4 {main}
+  thrown in C:\ULS\Sources\Projects\MRS\melbournemrs\public\cloudprint\GoogleCloudPrint.php on line 121
+[27-Oct-2020 01:35:39 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 268
+[27-Oct-2020 01:35:39 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:35:39 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 273
+[27-Oct-2020 01:35:39 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:35:39 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 273
+[27-Oct-2020 01:35:39 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:35:39 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:41:29 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 268
+[27-Oct-2020 01:41:29 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:41:29 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 273
+[27-Oct-2020 01:41:29 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:41:29 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 273
+[27-Oct-2020 01:41:29 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:41:29 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:53:56 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 268
+[27-Oct-2020 01:53:56 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:53:56 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 273
+[27-Oct-2020 01:53:56 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
+[27-Oct-2020 01:53:56 Etc/UTC] PHP Notice:  Undefined variable: resarray in C:\ULS\Sources\Projects\MRS\melbournemrs\controllers\callouts.php on line 273
+[27-Oct-2020 01:53:56 Etc/UTC] PHP Stack trace:
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   1. {main}() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:0
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   2. session_init() C:\ULS\Sources\Projects\MRS\melbournemrs\index.php:12
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   3. router() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:119
+[27-Oct-2020 01:53:56 Etc/UTC] PHP   4. callouts->action() C:\ULS\Sources\Projects\MRS\melbournemrs\element.php:161
