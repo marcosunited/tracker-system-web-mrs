@@ -12,7 +12,7 @@
     //Database Settings
     define('DB_USER','dev',true);
     define('DB_PASSWORD','DBPassULS$2020',true);
-    define('DB_HOST','10.42.0.149',true);
+    define('DB_HOST','10.42.0.246',true);
     define('DB_DATABASE','uls.tracker.melbourne',true);
 
     date_default_timezone_set("Australia/Melbourne");
