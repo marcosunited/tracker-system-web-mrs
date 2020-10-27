@@ -37,7 +37,7 @@ function mailer($mailto, $mailto2, $from, $domain, $mysubject, $message, $filena
 //Username to use for SMTP authentication - use full email address for gmail
     $mail->Username = "call@unitedlifts.com.au";
 //Password to use for SMTP authentication
-    $mail->Password = "zhengming0315";
+    $mail->Password = "wgdhkgxasunmwrxg";
 //Set who the message is to be sent from
     $mail->setFrom($from, 'Unitedlifts Services');
 //Set an alternative reply-to address
