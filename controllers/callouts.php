@@ -210,23 +210,28 @@
                 $emails = explode(";",$this->model->notify_email);
                 
                 foreach($emails as $email){
-                    $mailResponse = mailer($email,$user_email,"call@unitedlifts.com.au","unitedlifts.com.au",$subject,$message,$filename);
+                    $mailResponse = "FAILED";
+                    try {
+                        $mailResponse = mailer($email, $user_email, "call@unitedlifts.com.au", "unitedlifts.com.au", $subject, $message, $filename);
+                    }catch (Exception $e){
 
-                    /////////////////////record mailing history/////////////////////////////////////////////////////////
-                    $this->emailHistoryModel->user_id = sess('user_id');
-                    $this->emailHistoryModel->item_id = $this->currentCalloutId;
-                    $this->emailHistoryModel->item_type_id = 1; // 1 for collouts
-                    $this->emailHistoryModel->status = $mailResponse == 'OK' ? 'SENT' : 'FAILED';
-                    $this->emailHistoryModel->date_created = $this->model->callout_time;
-                    $this->emailHistoryModel->date_sent = time();
-                    $this->emailHistoryModel->subject = $subject;
-                    $this->emailHistoryModel->email_to = $email;
-                    $this->emailHistoryModel->email_from = 'call@unitedlifts.com.au';
-                    $this->emailHistoryModel->attempt = $nextEmailAttempt;
-                    $this->emailHistoryModel->include_attachment = 1;
-                    $this->emailHistoryModel->exception_message = $mailResponse == 'OK' ? '' : $mailResponse;;
+                    } finally {
+                        /////////////////////record mailing history/////////////////////////////////////////////////////////
+                        $this->emailHistoryModel->user_id = sess('user_id');
+                        $this->emailHistoryModel->item_id = $this->currentCalloutId;
+                        $this->emailHistoryModel->item_type_id = 1; // 1 for collouts
+                        $this->emailHistoryModel->status = $mailResponse == 'OK' ? 'SENT' : 'FAILED';
+                        $this->emailHistoryModel->date_created = $this->model->callout_time;
+                        $this->emailHistoryModel->date_sent = time();
+                        $this->emailHistoryModel->subject = $subject;
+                        $this->emailHistoryModel->email_to = $email;
+                        $this->emailHistoryModel->email_from = 'call@unitedlifts.com.au';
+                        $this->emailHistoryModel->attempt = $nextEmailAttempt;
+                        $this->emailHistoryModel->include_attachment = 1;
+                        $this->emailHistoryModel->exception_message = $mailResponse == 'OK' ? '' : $mailResponse;
+                        $this->emailHistoryModel->create();
+                    }
 
-                    $this->emailHistoryModel->create();
                 }
 
 
@@ -238,7 +243,7 @@
 				$gcp = new GoogleCloudPrint();
 
 				// Replace token you got in offlineToken.php
-				$refreshTokenConfig['refresh_token'] = '1/Ly5Y__k1J0jwDENVPh4clCYzcHFRWs5rbM4eqiM5ZIiavyy03ihLgRy7LYvkRU-G';
+				$refreshTokenConfig['refresh_token'] = "1//0eYFKLUcMw6RaCgYIARAAGA4SNwF-L9Ir0u-uESO2vQDphPbsq21Sc1TwJdIOS-JhxJUeGJwk7R1nvrS9pGXYuoQ_yrCCmJOtbnQ";
 
 				$token = $gcp->getAccessTokenByRefreshToken($urlconfig['refreshtoken_url'],http_build_query($refreshTokenConfig));
 
@@ -247,7 +252,8 @@
 				$printers = $gcp->getPrinters();
 				//print_r($printers);
 
-				$printerid = "edf9d366-e782-456d-7796-83f8f232a07f";
+                $printerid = "3e05bcb9-e61b-5ff1-0383-664ffa9b1cc5";
+				//$printerid = "edf9d366-e782-456d-7796-83f8f232a07f";
 				if(count($printers)==0) {
 					
 					echo "Could not get printers";
