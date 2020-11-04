@@ -222,7 +222,6 @@
                 else
                 {
                     sess('alert','Maintenance Created');
-                    //redirect(URL.'/maintenance/');
                     redirect(URL.'/maintenance/form/?job_id='.req('job_id'));                               
                 }
             }
@@ -230,90 +229,7 @@
 
             if ($printOk) //we email and print simlutaneosly 
             {
-                if($this->model->notify_email != "" /*&& $this->model->completed_id==2 */){
-                    $address = $jobs->model->job_address_number . " " . $jobs->model->job_address;
-                    $subject = "United Lifts Maintenance Report";
-                    // $description = str_replace("\r\n","<br>",$this->model->callout_description);
-                    // $fault = $_faults->model->fault_name;
-                    // $technician_fault = $_technician_faults->model->technician_fault_name;
-                    // $correction_name = $_corrections->model->correction_name;
-                    // $attributable_name = $_attributable->model->attributable_name;
-                    //$tech_description = str_replace("\r\n","<br>",$this->model->tech_description);
-                    $toc = date("d-m-Y G:i:s",$this->model->maintenance_date);
-                    $toa = date("d-m-Y G:i:s",$this->model->maintenance_toa);
-                    $tod = date("d-m-Y G:i:s",$this->model->maintenance_tod);
-                    $order_number = $this->model->order_no;
-                    $lift_names = ""; // getLifts($this->model->lift_ids);
-
-                    $i=1;
-                    foreach($lifts as $lift){
-                        $lift_names .= $lift['lift_name'] ;
-                        if($i<sizeof($lifts)) $lift_names .= ", ";
-                        $i++;
-                    }
-
-                    $login_user = sess('user_id');
-                    $users = mysqli_fetch_array(query("select * from technicians where technician_id = $login_user"));
-                    $user_email = "reception@unitedlifts.com.au";
-                    if($order_number == ""){
-                        $order_number = "N/A";
-                    }
-                    
-                    $myID = $this->model->docket_no;
-                    //$filename = (string)$this->model->maintenance_date;
-
-                    $message = "
-                        <img src='http://cloud.unitedlifts.com.au/melbourne-tracker/app/images/logo.png'>
-                        <p>This notification is to advise completion of your Maintenance (Docket Number: $myID, Order Number: $order_number) to Unit('s)<br>&nbsp;<br>
-                         at <b>$address</b> on <b>$toc</b>.</p>
-                        
-                        Our technician departed at <b>$tod</b>.</p> .
-                        <p>We trust our service was satisfactory, however we welcome your feedback to our office<br> via phone 9687 9099 or email info@unitedlifts.com.au.</p>
-                        <p>Thankyou for your continued patronage.</p>
-                        <p>United Lift Services</p>               
-                    ";
-                    $emails = explode(";",$this->model->notify_email);
-                    
-                    foreach($emails as $email){
-                        mailer($email,$user_email,"call@unitedlifts.com.au","unitedlifts.com.au",$subject,$message,$fileName );
-                    }
-                    
-                    require_once 'public/cloudprint/Config.php';
-                    require_once 'public/cloudprint/GoogleCloudPrint.php';
-                        
-                    // Create object
-                    $gcp = new GoogleCloudPrint();
-
-                    // Replace token you got in offlineToken.php
-                    $refreshTokenConfig['refresh_token'] = '1//0eYFKLUcMw6RaCgYIARAAGA4SNwF-L9Ir0u-uESO2vQDphPbsq21Sc1TwJdIOS-JhxJUeGJwk7R1nvrS9pGXYuoQ_yrCCmJOtbnQ'; //melbourne
-
-                    $token = $gcp->getAccessTokenByRefreshToken($urlconfig['refreshtoken_url'],http_build_query($refreshTokenConfig));
-
-                    $gcp->setAuthToken($token);
-
-                    $printers = $gcp->getPrinters();
-                    //print_r($printers);
-
-                    $printerid = "3e05bcb9-e61b-5ff1-0383-664ffa9b1cc5";
-                    if(count($printers)==0) {                        
-                        echo "Could not get printers";
-                        exit;
-                    }
-                    else {
-                        
-                        //$printerid = $printers[1]['id']; // Pass id of any printer to be used for print
-                        // Send document to the printer
-                        $resarray = $gcp->sendPrintToPrinter($printerid, $address, "functions/pdfReports/$fileName.pdf", "application/pdf");
-                        
-                        if($resarray['status']==true) {                            
-                            echo "Document has been sent to printer and should print shortly.";                            
-                        }
-                        else {
-                            echo "An error occured while printing the doc. Error code:".$resarray['errorcode']." Message:".$resarray['errormessage'];
-                        }
-                    }
-                }
-
+                sendMaintenanceNotification($this->model, $jobs, $lifts, $fileName);
             }
         }
 

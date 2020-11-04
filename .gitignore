@@ -1,3 +1,4 @@
 /.idea/
 /functions/pdfReports/
 *.log
+.idea/workspace.xml
